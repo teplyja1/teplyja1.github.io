@@ -29,7 +29,10 @@ self.addEventListener('fetch', function(event) {
           if (response) {
             return response;
           }
-        var fetchRequest = event.request.clone();
+        );
+        }
+      ).error(function(response) {
+         var fetchRequest = event.request.clone();
 
         return fetch(fetchRequest).then(
           function(response) {
@@ -47,8 +50,5 @@ self.addEventListener('fetch', function(event) {
 
             return response;
           }
-        );
-        }
-      )
   );
 });
