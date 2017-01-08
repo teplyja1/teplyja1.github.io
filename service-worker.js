@@ -45,7 +45,10 @@ self.addEventListener('fetch', function(event) {
               .then(function(cache) {
                 console.log("saved to cache");
                 cache.put(event.request, responseToCache);
-              });
+              },function(error){
+                console.log(error);
+                }
+                   );
 
             return response;
           }, function (error) {
