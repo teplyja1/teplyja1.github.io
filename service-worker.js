@@ -27,7 +27,7 @@ self.addEventListener('fetch', function(event) {
       .then(function(response) {
           // Cache hit - return response
           if (response) {
-            Console.log("returned from cache");
+            console.log("returned from cache");
             return response;
           }
         var fetchRequest = event.request.clone();
@@ -43,7 +43,7 @@ self.addEventListener('fetch', function(event) {
 
             caches.open(CACHE_NAME)
               .then(function(cache) {
-                Console.log("saved to cache");
+                console.log("saved to cache");
                 cache.put(event.request, responseToCache);
               });
 
