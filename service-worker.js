@@ -48,6 +48,8 @@ self.addEventListener('fetch', function(event) {
               });
 
             return response;
+          }, function (error) {
+            console.log(error);
           }
         );
         }
