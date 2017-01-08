@@ -252,7 +252,7 @@ self.addEventListener('fetch', function(event) {
 
 // Runtime cache configuration, using the sw-toolbox library.
 
-toolbox.router.get(/^http:\/\/localhost:8080\/api/, toolbox.networkFirst, {});
+toolbox.router.get(/^https:\/\/localhost:8443\/api/, toolbox.networkFirst, {});
 
 
 
