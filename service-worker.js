@@ -22,7 +22,5 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('fetch', event => {
-  event.respondWith(fetch(event.request,{
-  credentials: 'include'
-}));
+  event.respondWith(fetch(event.request));
 });
