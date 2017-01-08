@@ -5,7 +5,7 @@ var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
   '/',
   '/css/main.css',
-  '/js/main.js',
+  '/js/app.js',
   '/js/shims.js',
   '/assets/img/login-logo.png'
 ];
