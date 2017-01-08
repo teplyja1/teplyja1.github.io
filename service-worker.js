@@ -27,12 +27,10 @@ self.addEventListener('fetch', function(event) {
       .then(function(response) {
           // Cache hit - return response
           if (response) {
+            Console.log("returned from cache");
             return response;
           }
-        );
-        }
-      ).error(function(response) {
-         var fetchRequest = event.request.clone();
+        var fetchRequest = event.request.clone();
 
         return fetch(fetchRequest).then(
           function(response) {
@@ -45,10 +43,14 @@ self.addEventListener('fetch', function(event) {
 
             caches.open(CACHE_NAME)
               .then(function(cache) {
+                Console.log("saved to cache");
                 cache.put(event.request, responseToCache);
               });
 
             return response;
           }
+        );
+        }
+      )
   );
 });
