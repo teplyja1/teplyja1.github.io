@@ -32,7 +32,7 @@ self.addEventListener('activate', function(event) {
   event.waitUntil(
     caches.keys().then(function(keyList) {
       return Promise.all(keyList.map(function(key) {
-        if (key !== cacheName && key !== dataCacheName) {
+        if (key !== CACHE_NAME && key !== DATA_CACHE_NAME) {
           console.log('Removing old cache', key);
           return caches.delete(key);
         }
@@ -60,7 +60,7 @@ self.addEventListener('fetch', function(event) {
     /*
      * "Cache, falling back to the network" offline strategy used for App Shell
      */
-    e.respondWith(
+    event.respondWith(
       caches.match(event.request).then(function (response) {
         return response || fetch(event.request);
       })
