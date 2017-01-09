@@ -44,13 +44,12 @@ self.addEventListener('activate', function(e) {
 
 self.addEventListener('fetch', function(event) {
   console.log('Service Worker Fetch', e.request.url);
-  if (event.method=="GET")
-  if (event.request.url.indexOf(dataUrl) > -1) {
+  if (event.request.url.indexOf(DATA_URL) > -1) {
     /*
     "Cache then network" strategy used for Data
     */
     event.respondWith(
-      caches.open(dataCacheName).then(function(cache) {
+      caches.open(DATA_CACHE_NAME).then(function(cache) {
         return fetch(e.request).then(function(response){
           cache.put(e.request.url, response.clone());
           return response;
