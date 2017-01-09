@@ -2,7 +2,7 @@
  * Created by teply on 08.01.2017.
  */
 
-var CACHE_NAME = 'tagit-cache-v2';
+var CACHE_NAME = 'tagit-cache-v3';
 var urlsToCache = [
   '/',
   '/css/main.css',
@@ -12,8 +12,8 @@ var urlsToCache = [
   'https://fonts.googleapis.com/icon?family=Material+Icons'
 ];
 
-var DATA_CACHE_NAME = 'tagit-data-cache-v2';
-var DATA_URL = 'https://192.168.0.102:8443/api/v1/'
+var DATA_CACHE_NAME = 'tagit-data-cache-v1';
+var DATA_URL = 'https://192.168.0.102:8443/api/v3/'
 
 
 self.addEventListener('install', function(event) {
