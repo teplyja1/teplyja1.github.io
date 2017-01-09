@@ -12,7 +12,7 @@ var urlsToCache = [
   'https://fonts.googleapis.com/icon?family=Material+Icons'
 ];
 
-var DATA_CACHE_NAME = 'tagit-data-cache-v1;
+var DATA_CACHE_NAME = 'tagit-data-cache-v1';
 var DATA_URL = 'https://192.168.0.102:8443/api/v1/'
 
 
