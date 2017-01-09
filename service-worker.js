@@ -27,9 +27,9 @@ self.addEventListener('install', function(event) {
   );
 });
 
-self.addEventListener('activate', function(e) {
+self.addEventListener('activate', function(event) {
   console.log('ServiceWorker Activate');
-  e.waitUntil(
+  event.waitUntil(
     caches.keys().then(function(keyList) {
       return Promise.all(keyList.map(function(key) {
         if (key !== cacheName && key !== dataCacheName) {
@@ -43,15 +43,15 @@ self.addEventListener('activate', function(e) {
 });
 
 self.addEventListener('fetch', function(event) {
-  console.log('Service Worker Fetch', e.request.url);
+  console.log('Service Worker Fetch', event.request.url);
   if (event.request.url.indexOf(DATA_URL) > -1) {
     /*
     "Cache then network" strategy used for Data
     */
     event.respondWith(
       caches.open(DATA_CACHE_NAME).then(function(cache) {
-        return fetch(e.request).then(function(response){
-          cache.put(e.request.url, response.clone());
+        return fetch(event.request).then(function(response){
+          cache.put(event.request.url, response.clone());
           return response;
         });
       })
@@ -61,8 +61,8 @@ self.addEventListener('fetch', function(event) {
      * "Cache, falling back to the network" offline strategy used for App Shell
      */
     e.respondWith(
-      caches.match(e.request).then(function (response) {
-        return response || fetch(e.request);
+      caches.match(event.request).then(function (response) {
+        return response || fetch(event.request);
       })
     );
   }
