@@ -42,7 +42,7 @@ self.addEventListener('fetch', function(event) {
   console.log('Service Worker Fetch', event.request.url);
 
 
-  if (request.method == 'POST' || request.method == 'PUT' || request.method == 'DELETE') {
+  if (event.request.method == 'POST' || event.request.method == 'PUT' || event.request.method == 'DELETE') {
     /*
     * Do nothing special in case of POST, PUT, DELETE
     * */
