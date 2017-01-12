@@ -1,7 +1,3 @@
-/**
- * Created by teply on 08.01.2017.
- */
-
 var CACHE_NAME = 'tagit-cache-v2';
 var urlsToCache = [
   '/',
@@ -44,6 +40,15 @@ self.addEventListener('activate', function(event) {
 
 self.addEventListener('fetch', function(event) {
   console.log('Service Worker Fetch', event.request.url);
+
+
+  if (request.method == 'POST' || request.method == 'PUT' || request.method == 'DELETE') {
+    /*
+    * Do nothing special in case of POST, PUT, DELETE
+    * */
+    event.respondWith(fetch(event.request));
+  }
+
   if (event.request.url.indexOf(DATA_URL) > -1) {
     /*
     "Cache then network" strategy used for Data
@@ -63,7 +68,7 @@ self.addEventListener('fetch', function(event) {
     event.respondWith(
       caches.match(event.request).then(function (response) {
         return response || fetch(event.request);
-      })
+  })
     );
   }
 });
