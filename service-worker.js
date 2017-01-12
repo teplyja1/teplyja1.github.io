@@ -47,9 +47,7 @@ self.addEventListener('fetch', function(event) {
     * Do nothing special in case of POST, PUT, DELETE
     * */
     event.respondWith(fetch(event.request));
-  }
-
-  if (event.request.url.indexOf(DATA_URL) > -1) {
+  } else if (event.request.url.indexOf(DATA_URL) > -1) {
     /*
     "Cache then network" strategy used for Data
     */

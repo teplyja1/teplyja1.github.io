@@ -1,6 +1,6 @@
 {
   "name": "TagIt",
-  "short_name": "TagIt",
+  "short_name": "Tag It",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#3f51b5",
