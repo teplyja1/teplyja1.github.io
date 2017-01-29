@@ -9,7 +9,7 @@ var urlsToCache = [
 ];
 
 var DATA_CACHE_NAME = 'tagit-data-cache-v2';
-var DATA_URL = 'https://192.168.0.102:8443/api/v1/'
+var DATA_URL = 'https://192.168.0.104:8443/api/v1/'
 
 
 self.addEventListener('install', function(event) {
